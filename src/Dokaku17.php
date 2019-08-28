@@ -8,7 +8,11 @@ class Dokaku17
 {
     public function run(string $input) : string
     {
-        // implement me
-        return '1444';
+        $converter = new BinaryConverter();
+        $tripleNumber = new TripleNumber();
+
+        $binary = $converter->convert((int) $input);
+
+        return (string) bindec($tripleNumber->getNextNonTripleNumber($binary));
     }
 }
