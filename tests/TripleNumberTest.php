@@ -11,7 +11,7 @@ class TripleNumberTest extends TestCase
     /**
      * @dataProvider dataProviderDecimal
      */
-    public function test_Convert_to_binary(string $number) : void
+    public function test_isTripleNumber(string $number) : void
     {
         $tripleNumber = new TripleNumber();
         $test = $tripleNumber->isTripleNumber($number);
