@@ -29,3 +29,4 @@ $ composer test
 ## 関連
 
 - https://github.com/ttskch/nagoyaphp17
+- https://github.com/77web/nagoyaphp17
