@@ -34,7 +34,8 @@ class TripleNumberTest extends TestCase
     public function test_Get_next_non_triple_number($number, $expected) : void
     {
         $tripleNumber = new TripleNumber();
-        $test = $tripleNumber->getNextNonTripleNumber($number);
+        $binary = new Binary($number);
+        $test = $tripleNumber->getNextNonTripleNumber($binary);
         $this->assertSame($expected, $test);
     }
 
