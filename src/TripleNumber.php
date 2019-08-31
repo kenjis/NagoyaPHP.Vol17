@@ -16,7 +16,7 @@ class TripleNumber
             $binary_string = '0' . $binary->string();
 
             if (strpos($binary_string, '000') !== false) {
-                preg_match('/(.*?)(1000)(.*)/', $binary_string, $matches);
+                preg_match('/(.*?)(1000|0111)(.*)/', $binary_string, $matches);
 
                 $before = $matches[1];
                 $after = $matches[3];
@@ -31,7 +31,7 @@ class TripleNumber
             }
 
             if (strpos($binary_string, '111') !== false) {
-                preg_match('/(.*?)(0111)(.*)/', $binary_string, $matches);
+                preg_match('/(.*?)(1000|0111)(.*)/', $binary_string, $matches);
 
                 $before = $matches[1];
                 $after = $matches[3];
