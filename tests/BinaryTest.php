@@ -45,4 +45,23 @@ class BinaryTest extends TestCase
 
         $this->assertSame(2, $binary->decimal());
     }
+
+    /**
+     * @dataProvider dataProviderDecimal
+     */
+    public function test_isTripleNumber(string $binary_string) : void
+    {
+        $binary = new Binary($binary_string);
+        $this->assertTrue($binary->isTripleNumber());
+    }
+
+    public function dataProviderDecimal()
+    {
+        return [
+            ['111'],
+            ['1000'],
+            ['10111'],
+            ['10111000'],
+        ];
+    }
 }

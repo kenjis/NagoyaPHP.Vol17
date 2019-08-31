@@ -19,11 +19,13 @@ class Binary
     {
         if (is_int($number)) {
             $this->decimal = $number;
+
             return;
         }
 
         if (is_string($number)) {
             $this->decimal = (int) bindec($number);
+
             return;
         }
 
@@ -43,5 +45,18 @@ class Binary
     public function plus(int $int) : void
     {
         $this->decimal = $this->decimal + $int;
+    }
+
+    public function isTripleNumber() : bool
+    {
+        if (strpos($this->string(), '000') !== false) {
+            return true;
+        }
+
+        if (strpos($this->string(), '111') !== false) {
+            return true;
+        }
+
+        return false;
     }
 }

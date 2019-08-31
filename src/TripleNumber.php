@@ -6,28 +6,15 @@ namespace Nagoyaphp\Dokaku17;
 
 class TripleNumber
 {
-    public function isTripleNumber(string $binary_string) : bool
+    public function getNextNonTripleNumber(Binary $binary) : Binary
     {
-        if (strpos($binary_string, '000') !== false) {
-            return true;
-        }
-
-        if (strpos($binary_string, '111') !== false) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public function getNextNonTripleNumber(Binary $binary) : string
-    {
-        if (! $this->isTripleNumber($binary->string())) {
+        if (! $binary->isTripleNumber()) {
             $binary->plus(1);
         }
 
-        $binary_string = '0' . $binary->string();
+        while ($binary->isTripleNumber()) {
+            $binary_string = '0' . $binary->string();
 
-        while ($this->isTripleNumber($binary_string)) {
             if (strpos($binary_string, '000') !== false) {
                 preg_match('/(.*?)(000)(.*)/', $binary_string, $matches);
 
@@ -40,6 +27,7 @@ class TripleNumber
                     strlen($after)
                 );
                 $binary_string = $before . '001' . $after;
+                $binary = new Binary($binary_string);
             }
 
             if (strpos($binary_string, '111') !== false) {
@@ -54,9 +42,10 @@ class TripleNumber
                     strlen($after)
                 );
                 $binary_string = $before . '1001' . $after;
+                $binary = new Binary($binary_string);
             }
         }
 
-        return ltrim($binary_string, '0');
+        return $binary;
     }
 }

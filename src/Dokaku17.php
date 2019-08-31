@@ -12,6 +12,7 @@ class Dokaku17
         $binary = new Binary((int) $input);
 
         $nextNonTripleNumber = $tripleNumber->getNextNonTripleNumber($binary);
-        return (string) (new Binary($nextNonTripleNumber))->decimal();
+
+        return (string) $nextNonTripleNumber->decimal();
     }
 }

@@ -9,26 +9,6 @@ use PHPUnit\Framework\TestCase;
 class TripleNumberTest extends TestCase
 {
     /**
-     * @dataProvider dataProviderDecimal
-     */
-    public function test_isTripleNumber(string $number) : void
-    {
-        $tripleNumber = new TripleNumber();
-        $test = $tripleNumber->isTripleNumber($number);
-        $this->assertTrue($test);
-    }
-
-    public function dataProviderDecimal()
-    {
-        return [
-            ['111'],
-            ['1000'],
-            ['10111'],
-            ['10111000'],
-        ];
-    }
-
-    /**
      * @dataProvider dataProviderBinary
      */
     public function test_Get_next_non_triple_number($number, $expected) : void
@@ -36,7 +16,7 @@ class TripleNumberTest extends TestCase
         $tripleNumber = new TripleNumber();
         $binary = new Binary($number);
         $test = $tripleNumber->getNextNonTripleNumber($binary);
-        $this->assertSame($expected, $test);
+        $this->assertSame($expected, $test->string());
     }
 
     public function dataProviderBinary()
